@@ -46,8 +46,8 @@ export default function IndustriesPage() {
     <div className="bg-gray-950 text-white">
       {/* Hero */}
       <section className="relative overflow-hidden py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff14_1px,transparent_1px)] bg-[size:26px_26px]" />
+        <div className="absolute inset-0 bg-linear-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
+        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff14_1px,transparent_1px)] bg-size-[26px_26px]" />
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             Industries <span className="text-indigo-500">We Serve</span>

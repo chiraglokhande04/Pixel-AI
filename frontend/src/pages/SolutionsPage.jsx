@@ -26,8 +26,8 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
       {/* Background gradient + grid overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff14_1px,transparent_1px)] bg-[size:26px_26px]" />
+      <div className="absolute inset-0 bg-linear-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
+      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff14_1px,transparent_1px),linear-gradient(to_bottom,#ffffff14_1px,transparent_1px)] bg-size-[26px_26px]" />
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
@@ -70,7 +70,7 @@ function VerticalNavCards() {
             className="group relative overflow-hidden rounded-2xl p-8 text-left border border-white/10 bg-white/5 backdrop-blur-md 
                        hover:border-indigo-500 hover:shadow-[0_0_25px_-2px_rgba(79,70,229,0.6)] transition-all cursor-pointer"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition" />
+            <div className="absolute inset-0 bg-linear-to-br from-indigo-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition" />
             <h3 className="text-xl font-bold text-white group-hover:text-indigo-400 transition">
               {c.title}
             </h3>

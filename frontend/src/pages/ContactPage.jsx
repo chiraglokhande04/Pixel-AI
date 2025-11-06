@@ -23,7 +23,7 @@ export default function ContactPage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
       <div className="relative max-w-4xl mx-auto px-6 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
           Get in <span className="text-indigo-500">Touch</span>

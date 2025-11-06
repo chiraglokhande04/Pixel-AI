@@ -9,7 +9,7 @@ export default function IndustryDetail({ data }) {
     <div className="bg-gray-950 text-white">
       {/* Hero */}
       <section className="relative overflow-hidden pt-6 pb-20 md:pb-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-br from-indigo-600/20 via-purple-600/10 to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           {/* Back Button */}

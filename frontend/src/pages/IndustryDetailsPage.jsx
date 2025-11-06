@@ -1,5 +1,5 @@
 import IndustryDetail from "../components/IndustryDetail";
-import industriesData from "../utils/industries";
+import {industriesData} from "../utils/industries";
 import { useParams } from "react-router-dom";
 
 export default function IndustryPage() {
