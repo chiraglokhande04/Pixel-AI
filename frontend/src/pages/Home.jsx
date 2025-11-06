@@ -5,6 +5,7 @@ import WhatWeOffer from '../components/home/WhatWeOffer'
 import WhyPixxelAI from '../components/home/WhyPixxelAI'
 import Testimonials from '../components/home/Testimonials'
 import CoreVerticals from '../components/home/CoreVerticals'
+import IndustriesWeServe from '../components/home/IndustriesWeServe'
 
 const Home = () => {
   return (
@@ -14,8 +15,9 @@ const Home = () => {
       <SocialProof/>
       <WhatWeOffer/>
       <WhyPixxelAI/>
-      <Testimonials/>
       <CoreVerticals/>
+      <IndustriesWeServe/>
+        <Testimonials/>
     </>
   )
 }
