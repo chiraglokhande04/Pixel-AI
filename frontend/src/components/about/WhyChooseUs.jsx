@@ -12,11 +12,24 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-gray-950 py-24 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold">Why <span className="text-indigo-500">Choose Us</span></h2>
+        
+        <h2
+          data-aos="fade-up"
+          className="text-3xl md:text-4xl font-bold text-white"
+        >
+          Why <span className="text-indigo-500">Choose Us</span>
+        </h2>
+
         <ul className="mt-10 space-y-4">
           {reasons.map((p, i) => (
-            <li key={i} className="flex gap-3 text-lg text-gray-300">
-              <CheckCircle2 className="text-indigo-500 h-6 w-6 mt-1" /> {p}
+            <li
+              key={i}
+              data-aos="fade-up"
+              data-aos-delay={120 + i * 120}
+              className="flex gap-3 text-lg text-gray-300"
+            >
+              <CheckCircle2 className="text-indigo-500 h-6 w-6 mt-1" />
+              {p}
             </li>
           ))}
         </ul>
