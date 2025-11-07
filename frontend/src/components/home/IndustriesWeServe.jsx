@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function IndustriesWeServe() {
   const industries = [
@@ -58,14 +59,14 @@ export default function IndustriesWeServe() {
 
         {/* CTA Button */}
         <div className="flex justify-center mt-10">
-          <a
-            href="/industries"
+          <Link
+            to="/industries"
             className="inline-flex items-center gap-2 border border-white text-white 
             px-7 py-3 rounded-full text-sm font-medium transition 
             hover:bg-indigo-600 hover:border-indigo-600"
           >
             Explore All Industries <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

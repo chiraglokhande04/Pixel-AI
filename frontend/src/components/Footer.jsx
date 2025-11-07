@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -56,9 +57,9 @@ export default function Footer() {
           </ul>
 
           <div className="flex items-center gap-4 mt-6">
-            <a href="#" target="_blank" className="hover:text-white">
+            <Link to="#" target="_blank" className="hover:text-white">
               <Linkedin size={20} />
-            </a>
+            </Link>
             {/* add socials if needed */}
           </div>
         </div>

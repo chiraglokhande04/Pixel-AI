@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function IndustryDetail({ data }) {
   if (!data) return <div className="text-white p-20">Industry not found.</div>;
@@ -13,24 +14,24 @@ export default function IndustryDetail({ data }) {
 
         <div className="relative max-w-7xl mx-auto px-6">
           {/* Back Button */}
-          <a
-            href="/industries"
+          <Link
+            to="/industries"
             className="inline-flex items-center gap-2 text-gray-300 hover:text-white text-sm font-medium mb-6 transition"
           >
             <ArrowLeft size={16} /> Back to Industries
-          </a>
+          </Link>
 
           <p className="text-indigo-400 font-semibold tracking-wide uppercase">Industry</p>
           <h1 className="text-3xl md:text-5xl font-bold mt-2">{title}</h1>
           <p className="mt-3 text-lg text-gray-300 max-w-3xl">{heroDescription}</p>
 
           <div className="mt-8 flex gap-3">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-lg text-sm font-medium transition"
             >
               Book Consultation <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -134,12 +135,12 @@ export default function IndustryDetail({ data }) {
           <p className="mt-3 text-gray-700">
             We design interoperable, compliant, and intelligent systems — built to scale.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="mt-6 inline-flex items-center gap-2 border border-gray-900 text-gray-900 px-7 py-3 rounded-full text-sm font-medium transition hover:bg-indigo-600 hover:text-white hover:border-indigo-600"
           >
             Book a Strategy Call <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </section>
     </div>

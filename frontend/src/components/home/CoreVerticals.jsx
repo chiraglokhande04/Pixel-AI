@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function CoreVerticals() {
   const [active, setActive] = useState("enterprise");
@@ -79,14 +80,14 @@ export default function CoreVerticals() {
 
         {/* CTA Button */}
         <div className="flex justify-center mt-8">
-          <a
-            href="/solutions"
+          <Link
+            to="/solutions"
             className="inline-flex items-center gap-2 border border-gray-900 text-gray-900 
             px-7 py-3 rounded-full text-sm font-medium transition hover:bg-indigo-600 
             hover:text-white hover:border-indigo-600"
           >
             Explore Core Verticals <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

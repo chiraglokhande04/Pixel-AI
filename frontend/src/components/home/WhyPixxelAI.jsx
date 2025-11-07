@@ -36,7 +36,7 @@ export default function WhyPixxelAI() {
           <div className="mt-10 space-y-6">
             {reasons.map((item, i) => (
               <div key={i} className="flex gap-4">
-                <div className="h-5 w-5 mt-1 rounded-full bg-indigo-600 flex-shrink-0" />
+                <div className="h-5 w-5 mt-1 rounded-full bg-indigo-600 shrink-0" />
                 <div>
                   <h3 className="text-white font-semibold text-lg">{item.title}</h3>
                   <p className="text-gray-400 text-sm mt-1">{item.desc}</p>

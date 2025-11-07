@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 export default function SolutionsTabs() {
   const tabs = [
@@ -90,9 +91,9 @@ export default function SolutionsTabs() {
         {/* Cards */}
         <div key={active} className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fadeIn">
           {suites[active].map((suite, i) => (
-            <a
+            <Link
               key={i}
-              href={suite.link}
+              to={suite.link}
               className="group bg-gray-900/40 border border-white/5 hover:border-indigo-500 
               hover:shadow-[0_0_20px_-4px_#4f46e5] transition-all rounded-xl p-7 block"
             >
@@ -103,7 +104,7 @@ export default function SolutionsTabs() {
               <p className="mt-4 text-indigo-400 text-sm font-medium group-hover:underline">
                 Learn More →
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

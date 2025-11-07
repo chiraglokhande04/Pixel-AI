@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import {Link} from "react-router-dom";
 
 const INDUSTRIES = [
   {
@@ -74,9 +75,9 @@ export default function IndustriesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {INDUSTRIES.map((it) => (
-              <a
+              <Link
                 key={it.slug}
-                href={`/industries/${it.slug}`}
+                to={`/industries/${it.slug}`}
                 className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gray-900/50 hover:border-indigo-500 transition"
               >
                 {/* Base content */}
@@ -101,18 +102,18 @@ export default function IndustriesPage() {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* CTA */}
           <div className="flex justify-center mt-14">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 border border-white text-white px-7 py-3 rounded-full text-sm font-medium transition hover:bg-indigo-600 hover:border-indigo-600"
             >
               Talk to an Industry Expert <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

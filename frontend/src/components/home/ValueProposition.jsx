@@ -25,7 +25,7 @@ export default function ValueProposition() {
   return (
     <section className="relative bg-gray-950 py-24">
       {/* subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-900/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-indigo-900/10 to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-white">
