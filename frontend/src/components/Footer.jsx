@@ -26,6 +26,7 @@ export default function Footer() {
             <li><NavLink to="/solutions" className="hover:text-white">Solutions</NavLink></li>
             <li><NavLink to="/industries" className="hover:text-white">Industries</NavLink></li>
             <li><NavLink to="/contact" className="hover:text-white">Contact</NavLink></li>
+            <li><NavLink to="/blogs" className="hover:text-white">Blogs</NavLink></li>
           </ul>
         </div>
 
