@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Eye, EyeOff, User, Mail, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export default function AdminAuth() {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +48,7 @@ export default function AdminAuth() {
     setError('');
 
     try {
-      const response = await fetch('https://iaimers-1.onrender.com/api/admin/login', {
+      const response = await fetch(`${apiUrl}/api/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -82,7 +84,7 @@ export default function AdminAuth() {
     setError('');
 
     try {
-      const response = await fetch('https://iaimers-1.onrender.com/api/admin/register', {
+      const response = await fetch(`${apiUrl}/api/admin/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 4000;
+const port = 3000;
 const userRouter = require('./routes/userRouter');
-const jobOpeningRouter = require('./routes/jobOpeningRouter');
 const blogRouter = require('./routes/blogRouter');
-const serviceRouter = require('./routes/serviceRouter');
+const callbackRouter = require("./routes/callbackRouter.js")
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -16,9 +15,10 @@ connectDB();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/admin', userRouter);
-app.use('/api/jobs/', jobOpeningRouter);
+// app.use('/api/jobs/', jobOpeningRouter);
 app.use('/api/blogs', blogRouter);
-app.use('/api/services', serviceRouter);
+app.use('/api/callbacks', callbackRouter);
+// app.use('/api/services', serviceRouter);
 
 
 

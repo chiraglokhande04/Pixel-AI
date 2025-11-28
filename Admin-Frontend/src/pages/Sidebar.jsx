@@ -2,11 +2,8 @@ import { useState } from "react";
 import { BookOpen, Users, Calendar, Settings as SettingsIcon, Home , HandCoins,NotebookPen, MonitorCog } from "lucide-react";
 
 import Dashboard from '../components/AdminPanel/Dashboard';
-import CoursesPage from '../components/AdminPanel//Courses/CoursesPage'
-import InstructorManagement from '../components/AdminPanel/Instructors/InstructorManagement';
-import JobManagement from '../components/AdminPanel/Jobs/JobManagement.jsx';
 import BlogManagement from "../components/AdminPanel/Blogs/BlogManagement.jsx";
-import ServiceManagement from "../components/AdminPanel/Services/ServiceManagement.jsx";
+import ResponsesPage from "../components/AdminPanel/ResponsesPage.jsx"
 
 // Sidebar with navigation
 export default function Sidebar() {
@@ -14,22 +11,20 @@ export default function Sidebar() {
   
   const tabs = [
     { id: "dashboard", label: "Dashboard", icon: Home },
-    { id: "courses", label: "Courses", icon: BookOpen },
-    { id: "instructors", label: "Instructors", icon: Users },
-    { id: "jobOpenings", label: "Job Openings", icon: HandCoins },
+    // { id: "courses", label: "Courses", icon: BookOpen },
+    // { id: "instructors", label: "Instructors", icon: Users },
+    // { id: "jobOpenings", label: "Job Openings", icon: HandCoins },
     { id: "blogs", label: "Blogs", icon: NotebookPen },
-    { id: "services", label: "Services", icon: MonitorCog },
+    { id: "responses", label: "Responses", icon: NotebookPen },
+    // { id: "services", label: "Services", icon: MonitorCog },
   ];
   
   // Map active tab to component
   const getActiveComponent = () => {
     switch (activeTab) {
       case "dashboard": return <Dashboard />;
-      case "courses": return <CoursesPage />;
-      case "instructors": return <InstructorManagement />;
-      case "jobOpenings": return <JobManagement />;
       case "blogs": return <BlogManagement/>;
-      case "services": return <ServiceManagement/>;
+      case "responses": return <ResponsesPage/>;
       default: return <Dashboard />;
     }
   };

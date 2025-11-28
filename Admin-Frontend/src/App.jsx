@@ -5,16 +5,11 @@ import Sidebar from "./pages/Sidebar";
 import AdminAuth from "./pages/AdminAuth";
 
 
-
-import { CourseProvider } from "./config/CourseContext";
-import { JobProvider } from "./config/JobContext"; // ✅ Import JobProvider
-
 const App = () => {
  
 
   return (
-    <CourseProvider>
-      <JobProvider> {/* ✅ Wrap your job-related state here */}
+
         <BrowserRouter>
           <Routes>
            
@@ -22,8 +17,7 @@ const App = () => {
           <Route path="/dashboard" element={<Sidebar />} />
           </Routes>
         </BrowserRouter>
-      </JobProvider>
-    </CourseProvider>
+
   );
 };
 

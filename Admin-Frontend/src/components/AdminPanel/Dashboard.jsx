@@ -4,36 +4,13 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
-    courses: 0,
-    instructors: 0,
-    jobOpenings: 0,
     blogs: 0,
-    services: 0
+    responses: 0
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
   // Individual API calls - fetch all data and count locally
-  const fetchCourses = async () => {
-    const response = await fetch(`${apiUrl}/api/courses`);
-    if (!response.ok) throw new Error('Failed to fetch courses');
-    const data = await response.json();
-    return Array.isArray(data) ? data.length : (data.courses ? data.courses.length : 0);
-  };
-
-  const fetchInstructors = async () => {
-    const response = await fetch(`${apiUrl}/api/instructors`);
-    if (!response.ok) throw new Error('Failed to fetch instructors');
-    const data = await response.json();
-    return Array.isArray(data) ? data.length : (data.data ? data.data.length : 0);
-  };
-
-  const fetchJobOpenings = async () => {
-    const response = await fetch(`${apiUrl}/api/jobs`);
-    if (!response.ok) throw new Error('Failed to fetch job openings');
-    const data = await response.json();
-    return Array.isArray(data) ? data.length : (data.data ? data.data.length : 0);
-  };
 
   const fetchBlogs = async () => {
     const response = await fetch(`${apiUrl}/api/blogs`);
@@ -42,9 +19,9 @@ const Dashboard = () => {
     return Array.isArray(data) ? data.length : (data.data ? data.data.length : 0);
   };
 
-  const fetchServices = async () => {
-    const response = await fetch(`${apiUrl}/api/services`);
-    if (!response.ok) throw new Error('Failed to fetch services');
+  const fetchResponses = async () => {
+    const response = await fetch(`${apiUrl}/api/callbacks`);
+    if (!response.ok) throw new Error('Failed to fetch responses');
     const data = await response.json();
     return Array.isArray(data) ? data.length : (data.data ? data.data.length : 0);
   };
@@ -56,20 +33,14 @@ const Dashboard = () => {
     
     try {
       // Fetch all data in parallel and count the results
-      const [courses, instructors, jobOpenings, blogs, services] = await Promise.all([
-        fetchCourses(),
-        fetchInstructors(),
-        fetchJobOpenings(),
+      const [blogs, responses] = await Promise.all([
         fetchBlogs(),
-        fetchServices()
+        fetchResponses()
       ]);
 
       setStats({
-        courses,
-        instructors,
-        jobOpenings,
         blogs,
-        services
+        responses
       });
 
     } catch (err) {
@@ -78,11 +49,9 @@ const Dashboard = () => {
       
       // Set zero counts on error
       setStats({
-        courses: 0,
-        instructors: 0,
-        jobOpenings: 0,
         blogs: 0,
-        services: 0
+        responses: 0
+
       });
     } finally {
       setLoading(false);
@@ -95,33 +64,6 @@ const Dashboard = () => {
 
   const statsConfig = [
     {
-      title: 'Total Courses',
-      value: stats.courses,
-      icon: BookOpen,
-      color: 'bg-gradient-to-r from-blue-500 to-blue-600',
-      iconBg: 'bg-blue-100',
-      iconColor: 'text-blue-600',
-      change: '+12%'
-    },
-    {
-      title: 'Instructors',
-      value: stats.instructors,
-      icon: Users,
-      color: 'bg-gradient-to-r from-green-500 to-green-600',
-      iconBg: 'bg-green-100',
-      iconColor: 'text-green-600',
-      change: '+8%'
-    },
-    {
-      title: 'Job Openings',
-      value: stats.jobOpenings,
-      icon: HandCoins,
-      color: 'bg-gradient-to-r from-purple-500 to-purple-600',
-      iconBg: 'bg-purple-100',
-      iconColor: 'text-purple-600',
-      change: '+25%'
-    },
-    {
       title: 'Blog Posts',
       value: stats.blogs,
       icon: NotebookPen,
@@ -131,8 +73,8 @@ const Dashboard = () => {
       change: '+18%'
     },
     {
-      title: 'Services',
-      value: stats.services,
+      title: 'Responses',
+      value: stats.responses,
       icon: MonitorCog,
       color: 'bg-gradient-to-r from-indigo-500 to-indigo-600',
       iconBg: 'bg-indigo-100',

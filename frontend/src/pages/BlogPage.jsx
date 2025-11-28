@@ -7,7 +7,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const fetchBlogs = async () => {
   try {
     // const res = await fetch(`${apiUrl}/api/blogs`);
-    const res = await fetch(`https://iaimers-1.onrender.com/api/blogs`);
+    const res = await fetch(`${apiUrl}/api/blogs`);
     if (!res.ok) throw new Error("Failed to fetch blogs");
     const data = await res.json();
     return data.data;

@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
@@ -99,26 +101,91 @@ function ContactInfo() {
 
 /* -------------------- FORM -------------------- */
 function ContactForm() {
+  const [form, setForm] = useState({
+    fullName: "",
+    workEmail: "",
+    companyName: "",
+    country: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null); // success | error | null
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Basic validation (don’t send empty garbage)
+    if (!form.fullName || !form.workEmail) {
+      setStatus("error");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setStatus(null);
+
+      await axios.post(`${apiUrl}/api/callbacks`, {
+        fullName: form.fullName,
+        workEmail: form.workEmail,
+        companyName: form.companyName,
+        country: form.country,
+        message: form.message,
+      });
+
+      setStatus("success");
+
+      // Reset
+      setForm({
+        fullName: "",
+        workEmail: "",
+        companyName: "",
+        country: "",
+        message: "",
+      });
+
+    } catch (err) {
+      console.error("Error sending callback:", err);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div 
+    <div
       className="lg:col-span-2 bg-gray-900/40 border border-white/10 rounded-2xl p-8"
       data-aos="fade-left"
       data-aos-delay="250"
     >
       <h2 className="text-2xl font-semibold text-white">Send Us a Message</h2>
 
-      <form className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form 
+        className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6"
+        onSubmit={handleSubmit}
+      >
+
         {[
-          { label: "Full Name", type: "text", placeholder: "John Carter" },
-          { label: "Work Email", type: "email", placeholder: "you@company.com" },
-          { label: "Company Name", type: "text", placeholder: "Your Company" },
-          { label: "Country", type: "text", placeholder: "India" },
+          { name: "fullName", label: "Full Name", type: "text", placeholder: "John Carter" },
+          { name: "workEmail", label: "Work Email", type: "email", placeholder: "you@company.com" },
+          { name: "companyName", label: "Company Name", type: "text", placeholder: "Your Company" },
+          { name: "country", label: "Country", type: "text", placeholder: "India" },
         ].map((field, i) => (
           <div className="flex flex-col gap-2" key={i} data-aos="fade-left" data-aos-delay={350 + i * 150}>
             <label className="text-sm text-gray-300">{field.label}</label>
             <input
+              name={field.name}
               type={field.type}
               placeholder={field.placeholder}
+              value={form[field.name]}
+              onChange={handleChange}
               className="bg-gray-800 border border-white/10 rounded-lg p-3 text-sm text-white focus:border-indigo-500 outline-none"
             />
           </div>
@@ -128,6 +195,9 @@ function ContactForm() {
           <label className="text-sm text-gray-300">How can we help you?</label>
           <textarea
             rows="5"
+            name="message"
+            value={form.message}
+            onChange={handleChange}
             className="bg-gray-800 border border-white/10 rounded-lg p-3 text-sm text-white focus:border-indigo-500 outline-none"
             placeholder="Tell us briefly about your requirements…"
           ></textarea>
@@ -135,16 +205,29 @@ function ContactForm() {
 
         <button
           type="submit"
+          disabled={loading}
           data-aos="zoom-in"
           data-aos-delay="1050"
-          className="md:col-span-2 inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-lg text-sm font-medium transition"
+          className="md:col-span-2 inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-lg text-sm font-medium transition"
         >
-          Send Message <ArrowRight size={16} />
+          {loading ? "Sending..." : "Send Message"} 
+          <ArrowRight size={16} />
         </button>
+
+        {status === "success" && (
+          <p className="text-green-400 md:col-span-2">Message sent successfully!</p>
+        )}
+
+        {status === "error" && (
+          <p className="text-red-400 md:col-span-2">Failed to send message. Check your input.</p>
+        )}
       </form>
     </div>
   );
 }
+
+
+
 
 /* -------------------- LOCATION BLOCK (MAP EMBED) -------------------- */
 function LocationBlock() {
