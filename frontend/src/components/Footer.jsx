@@ -46,11 +46,11 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold mb-4">Get in Touch</h3>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2">
+            {/* <li className="flex items-center gap-2">
               <Mail size={16} className="text-indigo-500" /> hello@pixxelai.com
-            </li>
+            </li> */}
             <li className="flex items-center gap-2">
-              <Phone size={16} className="text-indigo-500" /> +91 98765 43210
+              <Phone size={16} className="text-indigo-500" /> +91 91425 77780
             </li>
             <li className="flex items-center gap-2 max-w-xs">
               <MapPin size={16} className="text-indigo-500" /> Mumbai, India

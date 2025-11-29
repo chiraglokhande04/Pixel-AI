@@ -62,17 +62,17 @@ function Hero() {
 /* -------------------- CONTACT INFO -------------------- */
 function ContactInfo() {
   const items = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      label: "Email",
-      value: "contact@company.com",
-      link: "mailto:contact@company.com",
-    },
+    // {
+    //   icon: <Mail className="h-5 w-5" />,
+    //   label: "Email",
+    //   value: "contact@company.com",
+    //   link: "mailto:contact@company.com",
+    // },
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Phone",
-      value: "+91 98765 43210",
-      link: "tel:+919876543210",
+      value: "+91 91425 77780",
+      link: "tel:+919142577780",
     },
   ];
 
