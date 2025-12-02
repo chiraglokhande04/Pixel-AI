@@ -67,10 +67,24 @@ export default function Footer() {
 
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10 mt-12 pt-6 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} PixxelAI. All rights reserved.
-      </div>
+{/* Bottom Bar */}
+<div className="border-t border-white/10 mt-12 pt-6 text-center text-xs text-gray-500">
+  © {new Date().getFullYear()} PixxelAI. All rights reserved.
+</div>
+
+<div className="mt-2 text-center text-[11px] text-indigo-400/90 tracking-wide">
+  Built by{" "}
+  <Link
+    to="https://iaimers.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold hover:text-indigo-300 transition underline"
+  >
+    IAIMERS
+  </Link>
+</div>
+
+
     </footer>
   );
 }
